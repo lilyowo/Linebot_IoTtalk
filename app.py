@@ -28,9 +28,9 @@ def IoTtalk_push_and_pull(IDF, ODF, data):
     
 #---------------------------------LineBot API functions---------------------------------
 # Channel Access Token
-line_bot_api = LineBotApi('YOUR CHANNEL ACCESS TOKEN')
+line_bot_api = LineBotApi('DQNVcGeXcJhuGxgjSbLoR4k6ldddBpYYpRXlrcxpKWgY/YK4v92shUvhx0cW1L0ecbqn3DcrPLduDQcRblvO/Z7ZG+hHjX8jUazqQacxwL0HdQ7GDQFgxrUfPAkTs5YlvIKjMC7mCV7Xgy0PPEmypwdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('YOUR CHANNEL SECRET')
+handler = WebhookHandler('bc3cdd4fe84c0fa1cc4e53a6c08c7e54')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
