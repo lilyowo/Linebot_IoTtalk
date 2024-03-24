@@ -125,7 +125,8 @@ def handle_message(event):
             result = IoTtalk_push_and_pull("Ham_idf_1", "Ham_odf_1", data_tuple)
             print("owowowowowowo")
             print(result)
-            return_msg = result[0]+'\n\n倉鼠上班 金錢+10 生命-10 快樂-10'
+            if(result == None): return_msg = 'IoTtalk處理失敗...'+'\n\n倉鼠上班 金錢+10 生命-10 快樂-10'
+            else: return_msg = result[0]+'\n\n倉鼠上班 金錢+10 生命-10 快樂-10'
             handle_hamster(-10,-10,10)
             print("owowowowowowo")
         else:
