@@ -1,8 +1,9 @@
 import requests, time, csmapi, random, threading 
 import logging
 
-# 设置日志记录的级别
-logging.basicConfig(level=logging.INFO)
+# 设置日志记录的级别和输出格式
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
 
 
 profile = {
