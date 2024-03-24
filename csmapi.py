@@ -14,6 +14,12 @@ def register(mac_addr, profile, UsingSession=IoTtalk):
         ENDPOINT + '/' + mac_addr,
         json={'profile': profile}, timeout=TIMEOUT
     )
+    # print("owoowowowowowo")
+    # print(ENDPOINT)
+    # print(mac_addr)
+    # print(profile)
+    # print(r.status_code)
+    # print("owoowowowowowo")
     if r.status_code != 200: raise CSMError(r.text)
     else: passwordKey = r.json().get('password')
     return True
