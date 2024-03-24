@@ -1,8 +1,5 @@
 import requests, time, csmapi, random, threading 
-import logging
 
-# 设置日志记录的级别和输出格式
-logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 
@@ -90,8 +87,6 @@ def register_device(addr):
         print ('This device has successfully registered.')
         print(profile)
         print ('Device name = ' + profile['d_name'])
-        # 将print语句改为记录日志
-        logging.info('Device name = ' + profile['d_name'])
          
         if thx == None:
             print ('Create control threading')

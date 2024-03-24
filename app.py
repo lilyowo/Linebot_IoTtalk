@@ -88,7 +88,8 @@ def handle_message(event):
     city_input = "臺北市"
     area_input = "松山"
     text_strings = text.split()
-
+    if(text == "check device name"):
+        return_msg = f'{DAN.profile['d_name']}'
     if(len(text_strings)==1 and not CheckWeather): 
         if(CheckArea):
             CheckArea = False
