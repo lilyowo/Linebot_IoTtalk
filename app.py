@@ -32,7 +32,7 @@ def IoTtalk_push_and_pull(IDF, ODF, data):
 line_bot_api = LineBotApi('DQNVcGeXcJhuGxgjSbLoR4k6ldddBpYYpRXlrcxpKWgY/YK4v92shUvhx0cW1L0ecbqn3DcrPLduDQcRblvO/Z7ZG+hHjX8jUazqQacxwL0HdQ7GDQFgxrUfPAkTs5YlvIKjMC7mCV7Xgy0PPEmypwdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
 handler = WebhookHandler('bc3cdd4fe84c0fa1cc4e53a6c08c7e54')
-
+IoTtalk_registration()#希望他能被執行...
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -159,7 +159,7 @@ def handle_message(event):
 import os
 if __name__ == "__main__":
          
-    IoTtalk_registration()
+    # IoTtalk_registration()
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
 
