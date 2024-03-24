@@ -3,7 +3,7 @@ import requests, time, csmapi, random, threading
 profile = {
     'd_name': None,
     'dm_name': None,
-    'u_name': None,
+    'u_name': 'yb',
     'is_sim': False,
     'df_list': [],
 }
@@ -82,6 +82,7 @@ def register_device(addr):
     print('IoTtalk Server = {}'.format(csmapi.ENDPOINT))
     if csmapi.register(MAC,profile):
         print ('This device has successfully registered.')
+        print(profile)
         print ('Device name = ' + profile['d_name'])
          
         if thx == None:
@@ -126,7 +127,10 @@ def pull(FEATURE_NAME):
 
 def push(FEATURE_NAME, *data):
     if state == 'RESUME':
-        return csmapi.push(MAC, FEATURE_NAME, list(data))
+        # print("from DAN XDDDDDDDD")
+        # print(list(data[0]))
+        # print("from DAN XDDDDDDDD")
+        return csmapi.push(MAC, FEATURE_NAME, list(data[0]))
     else: return None
 
 def get_alias(FEATURE_NAME):
