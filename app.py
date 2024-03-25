@@ -109,7 +109,7 @@ def handle_message(event):
             return_msg = f'請輸入下方其中一個縣市\n( {show_cities} )\n'
         elif(text_strings[0]=="餵食瓜子"):
             if(hamster_money >= 10):
-                handle_hamster(-5,15,-10)
+                handle_hamster(10,10,-10)
                 return_msg = "倉鼠很開心 也變胖了 快樂+10 生命+10 金錢-10"
             else:
                 return_msg = "你沒有足夠的金錢買瓜子QQ"
@@ -119,6 +119,7 @@ def handle_message(event):
     elif(CheckWeather):
         CheckWeather = False
         if(len(text_strings)==2):
+            
             city_input = text_strings[0]
             area_input = text_strings[1]
             data_tuple = (weather_data_json,city_input, area_input)
@@ -131,8 +132,8 @@ def handle_message(event):
             print("owowowowowowo")
             print(result)
             if(result == None): return_msg = 'IoTtalk處理失敗...'+'\n\n倉鼠上班 金錢+10 生命-10 快樂-10'
-            else: return_msg = result[0]+'\n\n倉鼠上班 金錢+10 生命-10 快樂-10'
-            handle_hamster(-10,-10,10)
+            else: return_msg = result[0]+'\n\n倉鼠上班 金錢+10 生命-5 快樂-5'
+            handle_hamster(-5,-5,10)
             print("owowowowowowo")
         else:
             return_msg = "請輸入正確的縣市區域格式：縣市名[空格]區域名"

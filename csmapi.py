@@ -51,7 +51,7 @@ def pull(mac_addr, df_name, UsingSession=IoTtalk):
         headers = {'password-key': passwordKey}
     )
     if r.status_code != 200: raise CSMError(r.text)
-    print(f"Pull Successful owo/ from {df_name}")
+    # print(f"Pull Successful owo/ from {df_name}")
     return r.json()['samples']
 
 
