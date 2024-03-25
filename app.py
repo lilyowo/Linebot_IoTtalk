@@ -33,6 +33,8 @@ line_bot_api = LineBotApi('DQNVcGeXcJhuGxgjSbLoR4k6ldddBpYYpRXlrcxpKWgY/YK4v92sh
 # Channel Secret
 handler = WebhookHandler('bc3cdd4fe84c0fa1cc4e53a6c08c7e54')
 IoTtalk_registration()#希望他能被執行...
+
+
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -121,8 +123,11 @@ def handle_message(event):
             area_input = text_strings[1]
             data_tuple = (weather_data_json,city_input, area_input)
             #push and pull data through IoTtalk server
-            # data_tuple = ([],"hahahaha","nonoohno")
-            result = IoTtalk_push_and_pull("Ham_idf_1", "Ham_odf_1", data_tuple)
+            result = None  # 初始化result
+            while result is None:  # 循环等待result返回
+                result = IoTtalk_push_and_pull("Ham_idf_1", "Ham_odf_1", data_tuple)
+                time.sleep(1)  # 等待一段时间再重新检查
+            # result = IoTtalk_push_and_pull("Ham_idf_1", "Ham_odf_1", data_tuple)
             print("owowowowowowo")
             print(result)
             if(result == None): return_msg = 'IoTtalk處理失敗...'+'\n\n倉鼠上班 金錢+10 生命-10 快樂-10'
