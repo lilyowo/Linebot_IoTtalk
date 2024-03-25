@@ -1,7 +1,7 @@
 import requests
 
 ENDPOINT = None
-TIMEOUT=10
+TIMEOUT=20
 IoTtalk = requests.Session()
 passwordKey = None
 
@@ -22,6 +22,7 @@ def register(mac_addr, profile, UsingSession=IoTtalk):
     # print("owoowowowowowo")
     if r.status_code != 200: raise CSMError(r.text)
     else: passwordKey = r.json().get('password')
+    print("Register Successful owo/")
     return True
 
 
@@ -39,6 +40,7 @@ def push(mac_addr, df_name, data, UsingSession=IoTtalk):
         headers = {'password-key': passwordKey}
     )
     if r.status_code != 200: raise CSMError(r.text)
+    print("Push Successful owo/")
     return True
 
 
@@ -49,6 +51,7 @@ def pull(mac_addr, df_name, UsingSession=IoTtalk):
         headers = {'password-key': passwordKey}
     )
     if r.status_code != 200: raise CSMError(r.text)
+    print(f"Pull Successful owo/ from {df_name}")
     return r.json()['samples']
 
 
